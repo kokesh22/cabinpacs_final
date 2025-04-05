@@ -32,6 +32,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add df_enriched.csv.csv
+          git add df_enriched.csv
           git commit -m "Update CSV (cron job) [skip ci]" || echo "No changes to commit"
           git push
