@@ -1,0 +1,50 @@
+name: Manual OneDrive Upload
+
+on:
+  workflow_dispatch:  # Para ejecutarlo manualmente desde Actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1) Checkout del repo
+      - uses: actions/checkout@v2
+
+      # 2) Instalar Python
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+
+      # 3) Instalar dependencias Python
+      - name: Install Python dependencies
+        run: |
+          pip install requests pandas
+
+      # 4) Instalar rclone
+      - name: Install rclone
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y rclone
+
+      # 5) Configurar rclone (usando un secreto con tu config)
+      #    NOTA: necesitarás crear el secreto RCLONE_CONFIG en tu repositorio,
+      #    que contenga tu configuración de OneDrive (ver más abajo).
+      - name: Configure rclone
+        run: |
+          mkdir -p ~/.config/rclone
+          echo "$RCLONE_CONFIG" > ~/.config/rclone/rclone.conf
+        env:
+          RCLONE_CONFIG: ${{ secrets.RCLONE_CONFIG }}
+
+      # 6) Ejecutar el script Python que genera el CSV
+      - name: Run main.py
+        run: python main.py
+
+      # 7) Subir el CSV a OneDrive
+      - name: Upload CSV to OneDrive
+        run: |
+          # Sustituye 'onedrive:' por el nombre del remote en tu rclone.conf
+          # Y 'MiCarpetaCompartida' por la carpeta que quieras en OneDrive.
+          rclone copy df_enriched.csv onedrive:MiCarpetaCompartida
