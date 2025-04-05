@@ -3,7 +3,7 @@ name: Actualización de datos
 on:
   workflow_dispatch:  # Para ejecutarlo manualmente
   schedule:
-    - cron: '0 5,9,13,17,21 * * *' 
+    - cron: '0,30 * * * *' 
 
 jobs:
   build:
