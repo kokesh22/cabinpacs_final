@@ -109,11 +109,9 @@ if __name__ == "__main__":
     # Instancia de la clase con tu token
     api = WeatherAPI(auth_token="rqypux9snyqljtwt4qozr1nhes1efrztpgk6k4qe92zsmyocgy37batrj3s3zry7n433kvdbk7s34ts43m9c334lkuugc2v2bk8g")  # Reemplaza con tu token real si fuera distinto
 
-    # Lista de DCI IDs
+    # Lista de DCI IDs GALAPAGAR
     
-    dci_ids = [
-        1572911, 5948360
-    ]
+    dci_ids = [2022927251, 1761212833, 397884123, 249312727, 607730158, 1826254598, 795229630, 433355383, 1019938642, 1812543069, 527602687, 5948360]
 
     # Tipos de datos a recopilar
     data_types = [
