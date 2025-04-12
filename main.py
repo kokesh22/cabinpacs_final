@@ -175,7 +175,7 @@ if __name__ == "__main__":
 
     # Definir los rangos esperados para cada variable
     expected_ranges = {
-        'temperature': (-50, 50),
+        'temperature': (-20, 50),
         'humidity': (0, 100),
         'atm_pressure': (800, 1200),
         'noise': (0, 120),
@@ -186,8 +186,8 @@ if __name__ == "__main__":
         'rainfall': (0, 500),
         'co': (0, 50),
         'no2': (0, 200),
-        'co2': (300, 600),
-        'o3': (0, 150),
+        'co2': (350, 2000),
+        'o3': (0, 300),
         'ch2o': (0, 20),
         'pm1_particles': (0, 300),
         'pm2p5_particles': (0, 300),
