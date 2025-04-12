@@ -172,3 +172,42 @@ if __name__ == "__main__":
     # 6) Guardar el DataFrame enriquecido a CSV
     df_enriched.to_csv("df_enriched.csv", index=False)
     print("Archivo CSV final generado: df_enriched.csv")
+
+    # Definir los rangos esperados para cada variable
+    expected_ranges = {
+        'temperature': (-50, 50),
+        'humidity': (0, 100),
+        'atm_pressure': (800, 1200),
+        'noise': (0, 120),
+        'uv_index': (0, 15),
+        'wind_direction': (0, 360),
+        'wind_speed': (0, 50),
+        'wind_strength': (0, 100),
+        'rainfall': (0, 500),
+        'co': (0, 50),
+        'no2': (0, 200),
+        'co2': (300, 600),
+        'o3': (0, 150),
+        'ch2o': (0, 20),
+        'pm1_particles': (0, 300),
+        'pm2p5_particles': (0, 300),
+        'pm10_particles': (0, 300)
+    }
+
+    # Crear una máscara que sea True si por lo menos un parámetro está fuera de su rango
+    mask = pd.Series([False] * len(df_enriched))
+    for param, (low, high) in expected_ranges.items():
+        if param in df_enriched.columns:
+            condition = (df_enriched[param] < low) | (df_enriched[param] > high)
+            mask = mask | condition
+
+    # Filtrar el DataFrame usando la máscara
+    df_atipicos = df_enriched[mask]
+
+    # Mostrar el número de registros atípicos y algunas filas de ejemplo
+    print("Número de registros atípicos:", len(df_atipicos))
+    print(df_atipicos.head())
+
+    # Guardar el DataFrame de atípicos a CSV
+    df_atipicos.to_csv("df_atipicos.csv", index=False)
+    print("Archivo CSV final generado: df_atipicos.csv")
