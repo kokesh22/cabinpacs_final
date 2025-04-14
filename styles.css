@@ -1,0 +1,106 @@
+/* styles.css */
+
+/* ======= RESET BÁSICO ======= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    /* Dejar espacio superior para cabecera y menú fijos */
+    padding-top: 120px; /* Ajustar si quieres más o menos espacio */
+  }
+  
+  /* ======= CABECERA FIJA ======= */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0078d4;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  /* ======= MENÚ DEBAJO DE LA CABECERA ======= */
+  nav {
+    position: fixed;
+    top: 70px; /* Justo debajo del header (20px padding + ~50px header) */
+    left: 0;
+    width: 100%;
+    background-color: #006bb3; /* Un tono de azul diferente al header */
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    z-index: 999;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: inline-block;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin: 0 15px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  nav a:hover {
+    background-color: white;
+    color: #0078d4;
+  }
+  
+  /* ======= CONTENIDO PRINCIPAL ======= */
+  main {
+    /*max-width: 1200px; */
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* ======= ESTILOS PARA EL IFRAME ======= */
+  iframe {
+    display: block;
+    margin: 0 auto;
+    width: 95%;
+    height: 750px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+  
+  
+  
+  /* ======= SECCIÓN DE "ACERCA DEL PROYECTO" ======= */
+  .about-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    line-height: 1.5;
+  }
+  .about-section h2 {
+    margin-bottom: 10px;
+  }
+  .about-section p {
+    margin-bottom: 15px;
+  }
+  
