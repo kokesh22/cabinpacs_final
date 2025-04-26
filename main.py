@@ -181,7 +181,7 @@ if __name__ == "__main__":
         'noise': (0, 120),
         'uv_index': (0, 15),
         'wind_direction': (0, 360),
-        'wind_speed': (0, 50),
+        'wind_speed': (0, 150),
         'wind_strength': (0, 12),
         'rainfall': (0, 500),
         'co': (0, 0.50),
